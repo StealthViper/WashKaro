@@ -149,6 +149,9 @@ public class cough_recorder extends BaseActivity {
                 try {
                     mediaPlayer1.setDataSource(pathSave1);
                     mediaPlayer1.prepare();
+                    if (!mediaPlayer1.isPlaying()) {
+                        mediaPlayer1.start();
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
