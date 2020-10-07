@@ -104,7 +104,7 @@ public class aqi_activity extends BaseActivity {
                         e.printStackTrace();
                     }
                     final String finalAQI1 = finalAQI;
-                    MainActivity.this.runOnUiThread(new Runnable() {
+                    aqi_activity.this.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             avgAQI.setText(finalAQI1);
@@ -175,7 +175,7 @@ public class aqi_activity extends BaseActivity {
 
 
                 try {
-                    if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    if (ActivityCompat.checkSelfPermission(aqi_activity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
                     } else {
                         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -192,7 +192,7 @@ public class aqi_activity extends BaseActivity {
                 reference = rootNode.getReference("AqiUserData");
                 reference.push().setValue(helperClass);
 
-                Intent geotagIntent = new Intent(MainActivity.this, GeoTagPage.class);
+                Intent geotagIntent = new Intent(aqi_activity.this, GeoTagPage.class);
                 startActivity(geotagIntent);
             }
         });
@@ -305,7 +305,7 @@ public class aqi_activity extends BaseActivity {
                                         e.printStackTrace();
                                     }
                                     final String finalAQI1 = finalAQI;
-                                    MainActivity.this.runOnUiThread(new Runnable() {
+                                    aqi_activity.this.runOnUiThread(new Runnable() {
                                         @Override
                                         public void run() {
                                             avgAQI.setText(finalAQI1);
@@ -375,7 +375,7 @@ public class aqi_activity extends BaseActivity {
                             Date currentTime = Calendar.getInstance().getTime();
 
                             try {
-                                if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                                if (ActivityCompat.checkSelfPermission(aqi_activity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
                                 } else {
                                     locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -421,7 +421,7 @@ public class aqi_activity extends BaseActivity {
                                                 e.printStackTrace();
                                             }
                                             final String finalAQI1 = finalAQI;
-                                            MainActivity.this.runOnUiThread(new Runnable() {
+                                            aqi_activity.this.runOnUiThread(new Runnable() {
                                                 @Override
                                                 public void run() {
                                                     avgAQI.setText(finalAQI1);
@@ -439,7 +439,7 @@ public class aqi_activity extends BaseActivity {
                             reference = rootNode.getReference("AqiUserData");
                             reference.push().setValue(helperClass);
 
-                            Intent geotagIntent = new Intent(MainActivity.this, GeoTagPage.class);
+                            Intent geotagIntent = new Intent(aqi_activity.this, GeoTagPage.class);
                             startActivity(geotagIntent);
                         }
                     });
