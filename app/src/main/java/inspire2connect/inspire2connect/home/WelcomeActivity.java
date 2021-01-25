@@ -113,7 +113,7 @@ public class WelcomeActivity extends BaseActivity {
         if (!prefManager.isFirstTimeLaunch()) {
 
             //prefManager.setFirstTimeLaunch(false);
-            Intent i = new Intent(WelcomeActivity.this, homeActivity.class);
+            Intent i = new Intent(WelcomeActivity.this, LoginActivity.class);
             startActivity(i);
             finish();
         }
@@ -269,4 +269,5 @@ public class WelcomeActivity extends BaseActivity {
             container.removeView(view);
         }
     }
+
 }
