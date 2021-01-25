@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/bg"
-    tools:context=".home.EmailLogin"
+    tools:context=".home.PhoneLogin"
     android:orientation="vertical">
 
     <ImageView
@@ -15,14 +15,14 @@
         android:layout_height="200dp"
         android:src="@drawable/ic_launcher_foreground"
         android:foregroundGravity="center_horizontal"
-         />
+        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="User LogIn "
+        android:text="Enter your phone number"
         android:fontFamily="@font/mukta_semibold"
-        android:textSize="40sp"
+        android:textSize="25sp"
         android:textColor="@color/app_black"
         android:layout_gravity="center_horizontal"/>
 
@@ -41,13 +41,13 @@
             android:orientation="vertical"
             tools:ignore="MissingConstraints">
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/email"
+                android:id="@+id/editTextMobile"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
-                android:hint="Your Email"
+                android:hint="Your Phone Number"
                 android:textColorHint="@color/app_blue">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -57,21 +57,7 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/pwd"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:hint="Your Password"
-                android:textColorHint="@color/app_blue"
-                app:passwordToggleEnabled="true">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPassword" />
-            </com.google.android.material.textfield.TextInputLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -81,26 +67,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:visibility="invisible"
-                    android:layout_above="@+id/button_view_solutions"
+                    android:layout_above="@+id/buttonContinue"
                     android:layout_centerHorizontal="true"
                     android:layout_marginBottom="25dp"
                     />
                 <Button
-                    android:id="@+id/email_signin_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
-                    android:backgroundTint="@color/app_blue"
-                    android:background="@drawable/round_corner"
-                    android:fontFamily="@font/mukta_semibold"
-                    android:text="Sign In"
-                    android:textColor="@color/app_white"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:onClick="signInEmailButton"
-                    />
-                <Button
-                    android:id="@+id/email_signup_button"
+                    android:id="@+id/buttonContinue"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
@@ -108,11 +80,10 @@
                     android:backgroundTint="@color/app_blue"
                     android:background="@drawable/round_corner"
                     android:fontFamily="@font/mukta_semibold"
-                    android:text="Sign Up"
+                    android:text="Submit"
                     android:textColor="@color/app_white"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:onClick="signUpEmailButton"
                     />
 
             </RelativeLayout>

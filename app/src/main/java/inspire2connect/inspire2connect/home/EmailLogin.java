@@ -19,24 +19,24 @@ import inspire2connect.inspire2connect.R;
 import inspire2connect.inspire2connect.utils.BaseActivity;
 
 public class EmailLogin extends BaseActivity {
-    TextInputLayout t1,t2;
+    TextInputLayout t1, t2;
     ProgressBar bar;
     private FirebaseAuth mAuth;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_email);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        t1=(TextInputLayout)findViewById(R.id.email);
-        t2=(TextInputLayout)findViewById(R.id.pwd);
-        bar=(ProgressBar)findViewById(R.id.progressBar);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        t1 = (TextInputLayout) findViewById(R.id.email);
+        t2 = (TextInputLayout) findViewById(R.id.pwd);
+        bar = (ProgressBar) findViewById(R.id.progressBar);
     }
-    public void signUpEmailButton(View view)
-    {
+
+    public void signUpEmailButton(View view) {
         bar.setVisibility(View.VISIBLE);
-        String email=t1.getEditText().getText().toString();
-        String password=t2.getEditText().getText().toString();
+        String email = t1.getEditText().getText().toString();
+        String password = t2.getEditText().getText().toString();
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -44,50 +44,57 @@ public class EmailLogin extends BaseActivity {
                 .addOnCompleteListener(EmailLogin.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful())
-                        {
-                            bar.setVisibility(View.INVISIBLE);
-                            t1.getEditText().setText("");
-                            t2.getEditText().setText("");
-                            Toast.makeText(getApplicationContext(),"Registered Successfully",Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(EmailLogin.this, homeActivity.class);
-                            startActivity(intent);
-                        }
-                        else
-                        {
-                            bar.setVisibility(View.INVISIBLE);
-                            t1.getEditText().setText("");
-                            t2.getEditText().setText("");
-                            Toast.makeText(getApplicationContext(),"Process Error",Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(EmailLogin.this, LoginActivity.class);
-                            startActivity(intent);
-                        }
-                    }
-                });
-
-        mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             bar.setVisibility(View.INVISIBLE);
                             t1.getEditText().setText("");
                             t2.getEditText().setText("");
-                            Toast.makeText(getApplicationContext(),"Already Registered",Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Registered Successfully", Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(EmailLogin.this, homeActivity.class);
                             startActivity(intent);
                         } else {
                             bar.setVisibility(View.INVISIBLE);
                             t1.getEditText().setText("");
                             t2.getEditText().setText("");
-                            Toast.makeText(getApplicationContext(),"Process Error",Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Process Error", Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(EmailLogin.this, LoginActivity.class);
                             startActivity(intent);
                         }
-
                     }
                 });
+    }
+
+        public void signInEmailButton(View view)
+        {
+            bar.setVisibility(View.VISIBLE);
+            String email = t1.getEditText().getText().toString();
+            String password = t2.getEditText().getText().toString();
+
+            mAuth = FirebaseAuth.getInstance();
+
+            mAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                bar.setVisibility(View.INVISIBLE);
+                                t1.getEditText().setText("");
+                                t2.getEditText().setText("");
+                                Toast.makeText(getApplicationContext(), "Already Registered", Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(EmailLogin.this, homeActivity.class);
+                                startActivity(intent);
+                            } else {
+                                bar.setVisibility(View.INVISIBLE);
+                                t1.getEditText().setText("");
+                                t2.getEditText().setText("");
+                                Toast.makeText(getApplicationContext(), "Process Error", Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(EmailLogin.this, LoginActivity.class);
+                                startActivity(intent);
+                            }
+
+                        }
+                    });
+
+        }
 
     }
 
-}

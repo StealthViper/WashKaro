@@ -26,6 +26,12 @@
         <activity android:name=".quiz.quizSolutionsActivity"></activity>
         <activity android:name=".satyaChat.ChatActivity" />
         <activity android:name=".home.homeActivity" /> <!-- <activity android:name=".male_female_2" /> -->
+        <activity android:name=".home.LoginActivity"
+            android:noHistory="true"/>
+        <activity android:name=".home.EmailLogin"
+            android:noHistory="true"/>
+        <activity android:name=".home.PhoneLogin"
+            android:noHistory="true"/>
         <activity android:name=".home.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
