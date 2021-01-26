@@ -3,13 +3,14 @@ package inspire2connect.inspire2connect.home;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
+
+import com.google.android.material.textfield.TextInputLayout;
 
 import inspire2connect.inspire2connect.R;
 import inspire2connect.inspire2connect.utils.BaseActivity;
 
 public class PhoneLogin extends BaseActivity {
-    private TextView editTextMobile;
+    private TextInputLayout editTextMobile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +23,7 @@ public class PhoneLogin extends BaseActivity {
             @Override
             public void onClick(View v) {
 
-                String mobile = editTextMobile.getText().toString().trim();
+                String mobile = editTextMobile.getEditText().getText().toString().trim();
 
                 if(mobile.isEmpty() || mobile.length() < 10){
                     editTextMobile.setError("Enter a valid mobile");

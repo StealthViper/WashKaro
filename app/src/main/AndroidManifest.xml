@@ -27,10 +27,20 @@
         <activity android:name=".satyaChat.ChatActivity" />
         <activity android:name=".home.homeActivity" /> <!-- <activity android:name=".male_female_2" /> -->
         <activity android:name=".home.LoginActivity"
-            android:noHistory="true"/>
+            android:noHistory="true">
+            <intent-filter>
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+            <category android:name="android.intent.category.BROWSABLE"/>
+            <data
+                android:host="example.com"
+                android:scheme="https"/>
+            </intent-filter>
+        </activity>
         <activity android:name=".home.EmailLogin"
             android:noHistory="true"/>
-        <activity android:name=".home.PhoneLogin"
+        <activity android:name=".home.PhoneLogin"/>
+        <activity android:name=".home.VerifyPhoneActivity"
             android:noHistory="true"/>
         <activity android:name=".home.WelcomeActivity">
             <intent-filter>

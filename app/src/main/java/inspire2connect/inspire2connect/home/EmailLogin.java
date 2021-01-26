@@ -63,38 +63,6 @@ public class EmailLogin extends BaseActivity {
                 });
     }
 
-        public void signInEmailButton(View view)
-        {
-            bar.setVisibility(View.VISIBLE);
-            String email = t1.getEditText().getText().toString();
-            String password = t2.getEditText().getText().toString();
-
-            mAuth = FirebaseAuth.getInstance();
-
-            mAuth.signInWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                bar.setVisibility(View.INVISIBLE);
-                                t1.getEditText().setText("");
-                                t2.getEditText().setText("");
-                                Toast.makeText(getApplicationContext(), "Already Registered", Toast.LENGTH_LONG).show();
-                                Intent intent = new Intent(EmailLogin.this, homeActivity.class);
-                                startActivity(intent);
-                            } else {
-                                bar.setVisibility(View.INVISIBLE);
-                                t1.getEditText().setText("");
-                                t2.getEditText().setText("");
-                                Toast.makeText(getApplicationContext(), "Process Error", Toast.LENGTH_LONG).show();
-                                Intent intent = new Intent(EmailLogin.this, LoginActivity.class);
-                                startActivity(intent);
-                            }
-
-                        }
-                    });
-
-        }
 
     }
 

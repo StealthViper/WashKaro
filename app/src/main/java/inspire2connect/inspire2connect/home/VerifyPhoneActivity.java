@@ -1,23 +1,22 @@
 package inspire2connect.inspire2connect.home;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.gms.tasks.TaskExecutors;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
@@ -31,7 +30,7 @@ public class VerifyPhoneActivity extends BaseActivity {
     private String mVerificationId;
 
     //The edittext to input the code
-    private TextView editTextCode;
+    private TextInputLayout editTextCode;
 
     //firebase auth object
     private FirebaseAuth mAuth;
@@ -59,7 +58,7 @@ public class VerifyPhoneActivity extends BaseActivity {
         findViewById(R.id.buttonSignIn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String code = editTextCode.getText().toString().trim();
+                String code = editTextCode.getEditText().getText().toString().trim();
                 if (code.isEmpty() || code.length() < 6) {
                     editTextCode.setError("Enter valid code");
                     editTextCode.requestFocus();
@@ -77,12 +76,14 @@ public class VerifyPhoneActivity extends BaseActivity {
     //the country id is concatenated
     //you can take the country id as user input as well
     private void sendVerificationCode(String mobile) {
-        PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                "+91" + mobile,
-                60,
-                TimeUnit.SECONDS,
-                (Activity) TaskExecutors.MAIN_THREAD,
-                mCallbacks);
+        PhoneAuthOptions options =
+                PhoneAuthOptions.newBuilder(mAuth)
+                        .setPhoneNumber("+91" + mobile)       // Phone number to verify
+                        .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
+                        .setActivity(this)                 // Activity (for callback binding)
+                        .setCallbacks(mCallbacks)          // OnVerificationStateChangedCallbacks
+                        .build();
+        PhoneAuthProvider.verifyPhoneNumber(options);
     }
 
 
@@ -98,7 +99,7 @@ public class VerifyPhoneActivity extends BaseActivity {
             //in this case the code will be null
             //so user has to manually enter the code
             if (code != null) {
-                editTextCode.setText(code);
+                editTextCode.setHelperText(code);
                 //verifying the code
                 verifyVerificationCode(code);
             }

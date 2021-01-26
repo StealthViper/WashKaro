@@ -81,24 +81,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:visibility="invisible"
-                    android:layout_above="@+id/button_view_solutions"
+                    android:layout_above="@+id/email_signup_button"
                     android:layout_centerHorizontal="true"
                     android:layout_marginBottom="25dp"
                     />
-                <Button
-                    android:id="@+id/email_signin_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
-                    android:backgroundTint="@color/app_blue"
-                    android:background="@drawable/round_corner"
-                    android:fontFamily="@font/mukta_semibold"
-                    android:text="Sign In"
-                    android:textColor="@color/app_white"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:onClick="signInEmailButton"
-                    />
+
                 <Button
                     android:id="@+id/email_signup_button"
                     android:layout_width="match_parent"

@@ -1,20 +1,16 @@
 package inspire2connect.inspire2connect.aqi_cough;
 
 import java.util.Date;
-import java.util.Calendar;
 
 public class UserHelperClass {
     String aqiPredictString;
-    String aqiActualString;
-    String userLatitude;
-    String userLongitude;
     String dataLocationString;
     String bmiString;
     String ageString;
     boolean bronchitisVal;
     boolean asthmaVal;
     boolean pneumoniaVal;
-    boolean cancerVal;
+    boolean lungCancerVal;
     boolean tbVal;
     boolean otherRespVal;
     boolean femaleVal;
@@ -26,18 +22,15 @@ public class UserHelperClass {
 
     }
 
-    public UserHelperClass(String aqiPredictString, String aqiActualString, String userLatitude, String userLongitude, String dataLocationString, String bmiString, String ageString, boolean bronchitisVal, boolean asthmaVal, boolean pneumoniaVal, boolean cancerVal, boolean tbVal, boolean otherRespVal, boolean femaleVal, boolean maleVal, boolean otherGenderVal, Date currentTime) {
+    public UserHelperClass(String aqiPredictString, String dataLocationString, String bmiString, String ageString, boolean bronchitisVal, boolean asthmaVal, boolean pneumoniaVal, boolean lungCancerVal, boolean tbVal, boolean otherRespVal, boolean femaleVal, boolean maleVal, boolean otherGenderVal, Date currentTime) {
         this.aqiPredictString = aqiPredictString;
-        this.aqiActualString = aqiActualString;
-        this.userLatitude = userLatitude;
-        this.userLongitude = userLongitude;
         this.dataLocationString = dataLocationString;
         this.bmiString = bmiString;
         this.ageString = ageString;
         this.bronchitisVal = bronchitisVal;
         this.asthmaVal = asthmaVal;
         this.pneumoniaVal = pneumoniaVal;
-        this.cancerVal = cancerVal;
+        this.lungCancerVal = lungCancerVal;
         this.tbVal = tbVal;
         this.otherRespVal = otherRespVal;
         this.femaleVal = femaleVal;
@@ -52,30 +45,6 @@ public class UserHelperClass {
 
     public void setAqiPredictString(String aqiPredictString) {
         this.aqiPredictString = aqiPredictString;
-    }
-
-    public String getAqiActualString() {
-        return aqiActualString;
-    }
-
-    public void setAqiActualString(String aqiActualString) {
-        this.aqiActualString = aqiActualString;
-    }
-
-    public String getUserLatitude() {
-        return userLatitude;
-    }
-
-    public void setUserLatitude(String userLatitude) {
-        this.userLatitude = userLatitude;
-    }
-
-    public String getUserLongitude() {
-        return userLongitude;
-    }
-
-    public void setUserLongitude(String userLongitude) {
-        this.userLongitude = userLongitude;
     }
 
     public String getDataLocationString() {
@@ -126,12 +95,12 @@ public class UserHelperClass {
         this.pneumoniaVal = pneumoniaVal;
     }
 
-    public boolean isCancerVal() {
-        return cancerVal;
+    public boolean isLungCancerVal() {
+        return lungCancerVal;
     }
 
-    public void setCancerVal(boolean cancerVal) {
-        this.cancerVal = cancerVal;
+    public void setLungCancerVal(boolean lungCancerVal) {
+        this.lungCancerVal = lungCancerVal;
     }
 
     public boolean isTbVal() {

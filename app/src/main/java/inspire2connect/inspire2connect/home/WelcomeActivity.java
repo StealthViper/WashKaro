@@ -15,14 +15,10 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.analytics.FirebaseAnalytics;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import inspire2connect.inspire2connect.R;
@@ -89,16 +85,16 @@ public class WelcomeActivity extends BaseActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
 
-        if (firebaseUser == null) {
-            firebaseAuth.signInAnonymously().addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
-                        firebaseUser = firebaseAuth.getCurrentUser();
-                    }
-                }
-            });
-        }
+//        if (firebaseUser == null) {
+//            firebaseAuth.signInAnonymously().addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+//                @Override
+//                public void onComplete(@NonNull Task<AuthResult> task) {
+//                    if (task.isSuccessful()) {
+//                        firebaseUser = firebaseAuth.getCurrentUser();
+//                    }
+//                }
+//            });
+//        }
 
 //         Firebase Analytics
         if (firebaseUser != null) {
@@ -201,7 +197,7 @@ public class WelcomeActivity extends BaseActivity {
 
     private void launchHomeScreen() {
 
-        startActivity(new Intent(WelcomeActivity.this, homeActivity.class));
+        startActivity(new Intent(WelcomeActivity.this, LoginActivity.class));
         finish();
     }
 
