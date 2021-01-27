@@ -60,6 +60,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
 
         mAuth = FirebaseAuth.getInstance();
 
+
+
         ll_but[0] = findViewById(R.id.email_login_tile);
         ll_but[1] = findViewById(R.id.phone_login_tile);
         ll_but[2] = findViewById(R.id.google_login_tile);

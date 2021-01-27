@@ -226,6 +226,9 @@ public class UpdateActivity extends BaseActivity implements TextToSpeech.OnInitL
                 i = getAqiIntent(this);
                 startActivity(i);
                 break;
+            case R.id.refer_app:
+                getReferralLink();
+                break;
             default:
                 i = null;
                 break;

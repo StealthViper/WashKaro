@@ -90,6 +90,9 @@ public class onAIrActivity extends BaseActivity {
                 i = getAqiIntent(this);
                 startActivity(i);
                 break;
+            case R.id.refer_app:
+                getReferralLink();
+                break;
             default:
                 break;
         }

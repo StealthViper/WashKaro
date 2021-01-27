@@ -307,6 +307,9 @@ public class homeActivity extends BaseActivity implements View.OnClickListener {
                 i = getAqiIntent(this);
                 startActivity(i);
                 break;
+            case R.id.refer_app:
+                getReferralLink();
+                break;
             default:
                 i = null;
                 break;

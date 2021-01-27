@@ -69,6 +69,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:17.4.3'
     implementation 'com.google.firebase:firebase-iid:20.2.0'
     implementation 'com.google.firebase:firebase-crashlytics:17.0.1'
+    implementation 'com.google.firebase:firebase-dynamic-links'
 
     // Room
     implementation "androidx.room:room-runtime:$room_version"

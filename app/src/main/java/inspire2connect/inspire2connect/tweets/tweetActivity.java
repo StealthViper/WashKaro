@@ -467,6 +467,9 @@ public class tweetActivity extends BaseActivity implements TextToSpeech.OnInitLi
                 i = getAqiIntent(this);
                 startActivity(i);
                 break;
+            case R.id.refer_app:
+                getReferralLink();
+                break;
             default:
                 i = null;
                 break;

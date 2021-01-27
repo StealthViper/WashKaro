@@ -27,5 +27,9 @@
         android:id="@+id/research_analytics"
         android:title="@string/research_analytics"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/refer_app"
+        android:title="@string/refer_application"
+        app:showAsAction="never" />
 
 </menu>
